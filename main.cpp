@@ -1,6 +1,4 @@
 #include "config.hpp"
-#include <algorithm>
-#include <cctype>
 
 
 namespace fs = std::filesystem;
