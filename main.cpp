@@ -12,6 +12,8 @@ int main(){
     fs::path destinationFolderTxt = currentPath / "txt";
     fs::path destinationFolderZip = currentPath / "zip";
     fs::path destinationFolderIso = currentPath / "iso";
+    fs::path destinationFolderMusic = currentPath / "music";
+    fs::path destinationFolderProjectAE = currentPath / "projectAE";
 
     std::unordered_map<std::string, std::string> commands = {
         {".png",  destinationFolderImage  },
@@ -19,6 +21,7 @@ int main(){
         {".jpeg",  destinationFolderImage  },
         {".mov",  destinationFolderImage  },
         {".gif",  destinationFolderImage  },
+        {".webp",  destinationFolderImage  },
 
         {".exe",  destinationFolderProgramWin },
 
@@ -27,6 +30,12 @@ int main(){
         {".mp4",  destinationFolderVideo  },
         {".avi",  destinationFolderVideo  },
         {".mov",  destinationFolderVideo  },
+
+        {".wav",  destinationFolderMusic  },
+        {".aiff",  destinationFolderMusic  },
+        {".mp3",  destinationFolderMusic  },
+        {".ogg",  destinationFolderMusic  },
+        {".m4a",  destinationFolderMusic  },
         
         {".zip",  destinationFolderZip  },
         {".gz",  destinationFolderZip  },
@@ -35,6 +44,10 @@ int main(){
         {".tar",  destinationFolderZip  },
 
         {".iso",  destinationFolderIso  },
+        
+        {".aep",  destinationFolderProjectAE  },
+
+        
     };
 
 
