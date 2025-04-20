@@ -14,6 +14,11 @@ int main(){
     fs::path destinationFolderIso = currentPath / "iso";
     fs::path destinationFolderMusic = currentPath / "music";
     fs::path destinationFolderProjectAE = currentPath / "projectAE";
+    fs::path destinationModelThreeD = currentPath / "model3D";
+    fs::path destinationVirtualBox = currentPath / "VirtualBoxIso";
+    fs::path destinationFlatPak = currentPath / "FlatPakFiles";
+    fs::path destinationJson = currentPath / "JsonFiles";
+    fs::path destinationFont = currentPath / "TextFont";
 
     std::unordered_map<std::string, std::string> commands = {
         {".png",  destinationFolderImage  },
@@ -47,6 +52,20 @@ int main(){
         
         {".aep",  destinationFolderProjectAE  },
 
+
+        {".obj",  destinationModelThreeD  },
+
+        {".glb",  destinationModelThreeD  },
+        {".fbx",  destinationModelThreeD  },
+        {".stl",  destinationModelThreeD  },
+        
+        {".ova",  destinationVirtualBox  },
+
+        {".flatpakref",  destinationFlatPak  },
+
+        {".json",  destinationJson  },
+
+        {".ttf",  destinationFont  },
         
     };
 
