@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/folderHelper.dir/src/main.cpp.o -o folderHelper 
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/folderHelper.dir/link.d CMakeFiles/folderHelper.dir/src/main.cpp.o -o folderHelper

@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/pipebomb/dev/cpp/folder/folderHelp/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

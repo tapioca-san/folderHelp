@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/folderHelper.dir/link.d"
   "CMakeFiles/folderHelper.dir/src/main.cpp.o"
   "CMakeFiles/folderHelper.dir/src/main.cpp.o.d"
   "folderHelper"
