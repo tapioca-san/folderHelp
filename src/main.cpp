@@ -1,7 +1,12 @@
 #include "config.hpp"
+#include <filesystem>
 
 
 namespace fs = std::filesystem;
+
+std::string FolderName = "organizado";
+
+std::vector<std::string> log_foldersNames; 
 
 int main(){
 
@@ -19,6 +24,12 @@ int main(){
     fs::path destinationFlatPak = currentPath / "FlatPakFiles";
     fs::path destinationJson = currentPath / "JsonFiles";
     fs::path destinationFont = currentPath / "TextFont";
+    fs::path destinationPdf = currentPath / "PDF";
+    fs::path destinationDocx = currentPath / "Docx";
+    fs::path destinationHtml = currentPath / "HTML";
+    fs::path destinationCss = currentPath / "CSS";
+    fs::path destinationTorrent = currentPath / "Torrent";
+
 
     std::unordered_map<std::string, std::string> commands = {
         {".png",  destinationFolderImage  },
@@ -66,10 +77,20 @@ int main(){
         {".json",  destinationJson  },
 
         {".ttf",  destinationFont  },
+
+        {".pdf",  destinationPdf  },
+        {".docx",  destinationDocx  },
+        {".html",  destinationHtml  },
+        {".css",  destinationCss  },
+        {".torrent",  destinationTorrent  },
+
         
     };
 
-
+    if (!fs::exists(FolderName)) { // criar pasta onde fica guardado tudo
+        fs::create_directory(FolderName);
+    }
+        
     for (const auto& entry : fs::directory_iterator(currentPath)) {
         for (const auto& [command, pathToFolderRight] : commands) {
 
@@ -77,13 +98,13 @@ int main(){
             std::transform(commandUp.begin(), commandUp.end(), commandUp.begin(), [](unsigned char c) { return std::toupper(c); });
 
             if(entry.path().extension() == command || entry.path().extension() == commandUp){
-                if (!fs::exists(pathToFolderRight)) {
-                    fs::create_directory(pathToFolderRight);
+                if (!fs::exists(FolderName + "/" + pathToFolderRight)) {
+                    fs::create_directory(FolderName + "/" +  pathToFolderRight);
                 }
-                fs::path newLocation = pathToFolderRight / entry.path().filename();
-                fs::rename(entry.path(),   newLocation );
+                log_foldersNames.push_back(FolderName + "/" + pathToFolderRight);
+                fs::path newLocation = (FolderName + "/" + pathToFolderRight) / entry.path().filename();
+                fs::rename(entry.path(),newLocation );
 
-                std::cout << entry.path().filename() << " moved to " << pathToFolderRight << "\n";
             }
         }
     }
