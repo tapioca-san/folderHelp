@@ -6,7 +6,6 @@ namespace fs = std::filesystem;
 
 std::string FolderName = "organizado";
 
-std::vector<std::string> log_foldersNames; 
 
 int main(){
 
@@ -101,7 +100,6 @@ int main(){
                 if (!fs::exists(FolderName + "/" + pathToFolderRight)) {
                     fs::create_directory(FolderName + "/" +  pathToFolderRight);
                 }
-                log_foldersNames.push_back(FolderName + "/" + pathToFolderRight);
                 fs::path newLocation = (FolderName + "/" + pathToFolderRight) / entry.path().filename();
                 fs::rename(entry.path(),newLocation );
 
